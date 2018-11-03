@@ -15,6 +15,6 @@ Recorrendo a uma bóia pretende-se monitorizar o nível de um depósito de água
 - [ ] Adição de boia para monitoramento de nível
 - [ ] Adição de interface via porta série
 - [ ] Exibir nível em porcentagem via display de 7 seguimentos
-- [ ] Exibir nível de água via barra de LEDs
+- [X] Exibir nível de água via barra de LEDs
 - [ ] Determinar nível por sonar
 - [ ] Botão para regular nível mínimo do deposito
