@@ -5,4 +5,9 @@
  *      Author: ssscassio
  */
 #include <avr/io.h>
-#include "../shift_register.h"
+#include "../Headers/shift_register.h"
+
+void leds_bar_output(unsigned char emptyPercent) {
+    int leds_count = emptyPercent*8/100;
+    shift_register_output(0b11111111 << leds_count);
+}
