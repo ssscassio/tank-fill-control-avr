@@ -12,7 +12,9 @@
 #include <stdio.h>
 #include <avr/io.h>          /* Register definitions*/
 
-#define BAUD 57600                   /* baud rate */
+#define F_CPU 16000000UL
+
+#define BAUD 57600UL                   /* baud rate */
 #define BAUDGEN ((F_CPU/(16*BAUD))-1)  /* divider   */
 
 void usart_init(void) {
