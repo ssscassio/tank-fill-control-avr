@@ -2,26 +2,24 @@
 #include <util/delay.h>
 #include "../Headers/serial_printf.h"
 #include "../Headers/displays.h"
-
-#define ANALOGIC_PORT     PORTC
-#define FLOATER           PC3
+#include "../Headers/floater.h"
 
 /* Define Functions*/
 void hardware_init(void);
 
 int main (void) {
   hardware_init(); //Setup IO pins and defaults
+
+  uint16_t tank_percent;
   while(1) {
-    for (unsigned char i = 0; i<100 ; i++){
-      for(int j=0; j<10; j++){
-        printf("Test\n");
-        show_displays(i);
-      }
-    }
+    tank_percent = get_tank_percent();
+    show_displays(99-tank_percent);
   }
 }
 
 void hardware_init (void) {
   displays_init();
   printf_init();
+  floater_init();
 }
+
