@@ -6,13 +6,7 @@
  */
 
 #include <avr/io.h>
-#include "../Headers/adc.h"
-
-#define FLOATER PC3
-#define HIGHER_LEVEL  800
-#define LOWER_LEVEL   200
-
-uint16_t convert_adc_to_percent(uint16_t adc_value);
+#include "../Headers/floater.h"
 
 uint16_t get_tank_percent( void ) {
   uint16_t adc_floater = adc_read(FLOATER);

@@ -11,7 +11,13 @@
 
 #include <stdio.h>
 
+#define F_CPU 16000000UL
+
+#define BAUD 57600UL                   /* baud rate */
+#define BAUDGEN ((F_CPU/(16*BAUD))-1)  /* divider   */
+
 int usart_putchar(char c, FILE *stream);
+
 void printf_init(void);
 
 #endif /* SERIAL_H_ */

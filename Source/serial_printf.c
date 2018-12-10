@@ -10,12 +10,8 @@
  *****************************************************************************/
 
 #include <stdio.h>
-#include <avr/io.h>          /* Register definitions*/
-
-#define F_CPU 16000000UL
-
-#define BAUD 57600UL                   /* baud rate */
-#define BAUDGEN ((F_CPU/(16*BAUD))-1)  /* divider   */
+#include <avr/io.h>
+#include "../Headers/serial_printf.h"
 
 void usart_init(void) {
   UBRR0 = BAUDGEN;

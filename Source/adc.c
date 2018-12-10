@@ -6,6 +6,7 @@
  */
 
 #include <avr/io.h>
+#include "../Headers/adc.h"
 
 void adc_init (void) {
   /* AVCC with external capacitor at AREF pin */

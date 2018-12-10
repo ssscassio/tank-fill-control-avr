@@ -6,35 +6,11 @@
  */
 
 #include <avr/io.h>
-#include "../Headers/shift_register.h"
-
-#define a 0
-#define b 1
-#define c 2
-#define d 3
-#define e 4
-#define f 5
-#define g 6
-#define dp 7
-
-#define zero  _BV(a) | _BV(b) | _BV(c) | _BV(d) | _BV(e) | _BV(f)
-#define one   _BV(b) | _BV(c)
-#define two   _BV(a) | _BV(b) | _BV(g) | _BV(e) | _BV(d)
-#define three _BV(a) | _BV(b) | _BV(g) | _BV(c) | _BV(d)
-#define four  _BV(f) | _BV(g) | _BV(b) | _BV(c)
-#define five  _BV(a) | _BV(f) | _BV(g) | _BV(c) | _BV(d)
-#define six   _BV(a) | _BV(f) | _BV(e) | _BV(d) | _BV(c) | _BV(g)
-#define seven _BV(a) | _BV(b) | _BV(c)
-#define eight _BV(a) | _BV(b) | _BV(c) | _BV(d) | _BV(e) | _BV(f) | _BV(g)
-#define nine  _BV(a) | _BV(b) | _BV(c) | _BV(f) | _BV(g)
-#define dot   _BV(dp)
-
-unsigned char convert_number(unsigned char number);
+#include "../Headers/display_seven.h"
 
 void seven_left(unsigned char number) {
   shift_register_output(convert_number(number));
 }
-
 
 void seven_right(unsigned char number) {
   shift_register_output(convert_number(number));

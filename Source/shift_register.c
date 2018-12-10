@@ -5,20 +5,7 @@
  *      Author: ssscassio
  */
 #include <avr/io.h>
-
-#define SHIFT_REGISTER_PORT PORTC /* Define Shift Register at port C */
-#define DS_PIN PC0                /* Serial data input for shift register at pin PC0 */
-#define ST_CP_PIN PC1             /* Latch clock at pin PC1 (ST_CP) */
-#define SH_CP_PIN PC2             /* Shift clock at pin PC2 (SH_CP) */
-
-
-// Define Shift Register actions
-#define DS_low()  SHIFT_REGISTER_PORT&=~(1<<DS_PIN)
-#define DS_high() SHIFT_REGISTER_PORT|=(1<<DS_PIN)
-#define ST_CP_low()  SHIFT_REGISTER_PORT&=~(1<<ST_CP_PIN)
-#define ST_CP_high() SHIFT_REGISTER_PORT|=(1<<ST_CP_PIN)
-#define SH_CP_low()  SHIFT_REGISTER_PORT&=~(1<<SH_CP_PIN)
-#define SH_CP_high() SHIFT_REGISTER_PORT|=(1<<SH_CP_PIN)
+#include "../Headers/shift_register.h"
 
 void shift_register_init() {
   /* Define Shift Register pins as Outputs - remaining pins unconfigured */
