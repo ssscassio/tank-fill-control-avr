@@ -4,6 +4,7 @@
 #include "../Headers/displays.h"
 #include "../Headers/floater.h"
 #include "../Headers/buzzer.h"
+#include "../Headers/sonar.h"
 
 /* Define Functions*/
 void hardware_init(void);
@@ -15,9 +16,10 @@ int main(void)
   uint16_t tank_percent;
   while (1)
   {
-    tank_percent = get_tank_percent();
+    tank_percent = get_floater_percent();
     show_displays(99 - tank_percent);
     buzzer_dispatcher(99 - tank_percent);
+    printf("%d\n", get_sonar_distance());
   }
 }
 
@@ -27,4 +29,5 @@ void hardware_init(void)
   printf_init();
   floater_init();
   buzzer_init();
+  sonar_init();
 }
