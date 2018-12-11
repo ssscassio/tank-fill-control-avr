@@ -19,6 +19,6 @@ uint16_t convert_adc_to_percent(uint16_t adc_value);
 
 void floater_init(void);
 
-uint16_t get_tank_percent(void);
+uint16_t get_floater_percent(void);
 
 #endif /* HEADERS_FLOATER_H_ */

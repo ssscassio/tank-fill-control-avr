@@ -18,7 +18,11 @@ void buzzer_init()
 void buzzer_dispatcher(unsigned char percent)
 {
   if (percent >= FULL_THRESHOLD_PERCENT || percent <= EMPTY_THRESHOLD_PERCENT)
+  {
     BuzzerOn();
+  }
   else
+  {
     BuzzerOff();
+  }
 }

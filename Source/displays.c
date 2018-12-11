@@ -4,8 +4,8 @@
  *  Created on: 6 de dez de 2018
  *      Author: ssscassio
  */
-#include "../Headers/displays.h"
 #include <util/delay.h>
+#include "../Headers/displays.h"
 
 void displays_init(void)
 {

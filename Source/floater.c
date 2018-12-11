@@ -8,7 +8,7 @@
 #include <avr/io.h>
 #include "../Headers/floater.h"
 
-uint16_t get_tank_percent(void)
+uint16_t get_floater_percent(void)
 {
   uint16_t adc_floater = adc_read(FLOATER);
   if (adc_floater <= LOWER_LEVEL)
