@@ -25,9 +25,9 @@ int usart_putchar(char c, FILE *stream) {
   return 0;
 }
 
-static FILE mystdout = FDEV_SETUP_STREAM(usart_putchar, NULL, _FDEV_SETUP_WRITE);
+static FILE myStdout = FDEV_SETUP_STREAM(usart_putchar, NULL, _FDEV_SETUP_WRITE);
 
 void printf_init(void) {
   usart_init();
-  stdout = &mystdout;
+  stdout = &myStdout;
 }

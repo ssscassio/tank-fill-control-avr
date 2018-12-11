@@ -16,7 +16,7 @@
 #define BAUD 57600UL                   /* baud rate */
 #define BAUDGEN ((F_CPU/(16*BAUD))-1)  /* divider   */
 
-int usart_putchar(char c, FILE *stream);
+int /* usart */_putchar(char c, FILE *stream);
 
 void printf_init(void);
 
