@@ -20,8 +20,7 @@
 #define EMPTY_THRESHOLD_PERCENT 20
 
 // Define Buzzer Actions
-#define BuzzerOn() BUZZER_PORT |= (1 << BUZZER)
-#define BuzzerOff() BUZZER_PORT &= ~(1 << BUZZER)
+#define BuzzerOn() BUZZER_PORT ^= (1 << BUZZER)
 
 // Define Buzzer Function
 void buzzer_dispatcher(unsigned char percent);
