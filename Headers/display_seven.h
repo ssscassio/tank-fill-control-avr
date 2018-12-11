@@ -21,17 +21,17 @@
 #define dp _BV(7)
 
 // Define Seven Segments Display numbers combinations
-#define zero  a | b | c | d | e | f
-#define one   b | c
-#define two   a | b | g | e | d
+#define zero a | b | c | d | e | f
+#define one b | c
+#define two a | b | g | e | d
 #define three a | b | g | c | d
-#define four  f | g | b | c
-#define five  a | f | g | c | d
-#define six   a | f | e | d | c | g
+#define four f | g | b | c
+#define five a | f | g | c | d
+#define six a | f | e | d | c | g
 #define seven a | b | c
 #define eight a | b | c | d | e | f | g
-#define nine  a | b | c | f | g
-#define dot   dp
+#define nine a | b | c | f | g
+#define dot dp
 
 // Define Seven Segments Display Functions
 unsigned char convert_number(unsigned char number);

@@ -14,16 +14,16 @@
 #include "../Headers/display_seven.h"
 
 // Define Multiplexer Displays Pins and Ports
-#define SHIFT_REGISTER_CONTROL  PORTB
-#define LEFT_DISPLAY            PB5
-#define RIGHT_DISPLAY           PB4
-#define LEDS_BAR_DISPLAY        PB3
+#define SHIFT_REGISTER_CONTROL PORTB
+#define LEFT_DISPLAY PB5
+#define RIGHT_DISPLAY PB4
+#define LEDS_BAR_DISPLAY PB3
 
 // Define Multiplexer Displays Actions
-#define CLEAR_ALL_DISPLAYS()    SHIFT_REGISTER_CONTROL &=  ~((1<<LEFT_DISPLAY) | (1<<RIGHT_DISPLAY) | (1<<LEDS_BAR_DISPLAY))
-#define SHOW_LEFT()             SHIFT_REGISTER_CONTROL |= (1<<LEFT_DISPLAY)
-#define SHOW_RIGHT()            SHIFT_REGISTER_CONTROL |= (1<<RIGHT_DISPLAY)
-#define SHOW_LEDS_BAR()         SHIFT_REGISTER_CONTROL |= (1<<LEDS_BAR_DISPLAY)
+#define CLEAR_ALL_DISPLAYS() SHIFT_REGISTER_CONTROL &= ~((1 << LEFT_DISPLAY) | (1 << RIGHT_DISPLAY) | (1 << LEDS_BAR_DISPLAY))
+#define SHOW_LEFT() SHIFT_REGISTER_CONTROL |= (1 << LEFT_DISPLAY)
+#define SHOW_RIGHT() SHIFT_REGISTER_CONTROL |= (1 << RIGHT_DISPLAY)
+#define SHOW_LEDS_BAR() SHIFT_REGISTER_CONTROL |= (1 << LEDS_BAR_DISPLAY)
 
 // Define Multiplexer Displays Functions
 void displays_init(void);

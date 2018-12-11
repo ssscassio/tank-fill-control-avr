@@ -13,21 +13,25 @@
 #include <avr/io.h>
 #include "../Headers/serial_printf.h"
 
-void usart_init(void) {
+void usart_init(void)
+{
   UBRR0 = BAUDGEN;
   UCSR0B = (1 << RXEN0) | (1 << TXEN0);
   UCSR0C = (1 << USBS0) | (3 << UCSZ00);
 }
 
-int usart_putchar(char c, FILE *stream) {
-  while (!( UCSR0A & (1 << UDRE0)));
+int usart_putchar(char c, FILE *stream)
+{
+  while (!(UCSR0A & (1 << UDRE0)))
+    ;
   UDR0 = c;
   return 0;
 }
 
 static FILE myStdout = FDEV_SETUP_STREAM(usart_putchar, NULL, _FDEV_SETUP_WRITE);
 
-void printf_init(void) {
+void printf_init(void)
+{
   usart_init();
   stdout = &myStdout;
 }

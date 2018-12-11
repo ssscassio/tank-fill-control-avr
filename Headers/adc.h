@@ -9,6 +9,6 @@
 #define HEADERS_ADC_H_
 
 uint16_t adc_read(uint8_t ch);
-void adc_init (void);
+void adc_init(void);
 
 #endif /* HEADERS_ADC_H_ */
