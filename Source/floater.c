@@ -28,3 +28,8 @@ uint16_t convert_adc_to_percent(uint16_t adc_value)
 {
   return (adc_value - LOWER_LEVEL) * 100 / (HIGHER_LEVEL - LOWER_LEVEL);
 }
+
+uint16_t get_floater_value(void)
+{
+  return adc_read(FLOATER);
+}
