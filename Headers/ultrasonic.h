@@ -16,6 +16,7 @@
 #define ULTRASONIC_PORT PORTD
 #define ULTRASONIC_TRIGGER PD7
 #define ULTRASONIC_ECHO PD3
+#define ULTRASONIC_PIN PIND
 
 void ultrasonic_init(void);
 
