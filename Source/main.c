@@ -5,6 +5,7 @@
 #include "../Headers/floater.h"
 #include "../Headers/buzzer.h"
 #include "../Headers/sonar.h"
+#include "../Headers/motor.h"
 
 /* Define Functions*/
 void hardware_init(void);
@@ -19,7 +20,8 @@ int main(void)
     tank_percent = get_floater_percent();
     show_displays(99 - tank_percent);
     buzzer_dispatcher(99 - tank_percent);
-    printf("%d\n", get_sonar_distance());
+    printf("%d\n", get_sonar_value());
+    motor_dispatcher(99 - tank_percent);
   }
 }
 
@@ -30,4 +32,5 @@ void hardware_init(void)
   floater_init();
   buzzer_init();
   sonar_init();
+  motor_init();
 }
