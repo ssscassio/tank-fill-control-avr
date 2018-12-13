@@ -1,7 +1,11 @@
 /*
  * display_seven.h
- *
- *  Created on: 29 de nov de 2018
+ *  Convert a specific digit to a binary that will be 
+ *  input to the shift register 
+ *  (less significant bit equals a)
+ *  (more significant bit equals dot point)
+ *  Header file
+ *  Created on: 11/29/2018
  *      Author: ssscassio
  */
 

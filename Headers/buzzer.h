@@ -1,7 +1,9 @@
 /*
  * buzzer.h
- *
- *  Created on: 7 de dez de 2018
+ *  Dispatcher for the state machine of
+ *  the Buzzer and alert situations 
+ *  Header file
+ *  Created on: 12/7/2018
  *      Author: ssscassio
  */
 

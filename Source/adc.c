@@ -12,7 +12,7 @@ void adc_init(void)
 {
   /* AVCC with external capacitor at AREF pin */
   ADMUX = (1 << REFS0);
-  /* ADEN: 1 => ADC enable; ADPS: 111 => Prescaler 128*/
+  /* ADEN: 1 => ADC enable; ADPS: 111 => Prescaler 128 */
   ADCSRA = (1 << ADEN) | (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
 }
 

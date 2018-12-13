@@ -1,7 +1,9 @@
 /*
  * leds_bar.h
- *
- *  Created on: 8 de nov de 2018
+ *  Buffer the Leds bar output to the shift register pins
+ *  based on the information of the tank's empty percent
+ *  Header File
+ *  Created on: 11/8/2018
  *      Author: ssscassio
  */
 

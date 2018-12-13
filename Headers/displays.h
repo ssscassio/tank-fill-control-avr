@@ -1,7 +1,10 @@
 /*
  * displays.h
- *
- *  Created on: 6 de dez de 2018
+ *  Selection between the outputs from the shift register
+ *  Show all displays with a frequency that will be not perceive
+ *  by human
+ *  Header file
+ *  Created on: 12/6/2018
  *      Author: ssscassio
  */
 

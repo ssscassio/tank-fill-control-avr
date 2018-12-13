@@ -1,7 +1,8 @@
 /*
  * adc.h
- *
- *  Created on: 7 de dez de 2018
+ *  Initialize ADC conversor and read from a specific channel
+ *  Header file
+ *  Created on: 12/07/2018
  *      Author: ssscassio
  */
 

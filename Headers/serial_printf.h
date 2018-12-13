@@ -1,8 +1,8 @@
 /*
- * serial.h
+ * serial_printf.h
  *  Redirection of the printf stream to the AVR serial port
  *  Header file
- *  Created on: 13/09/2016
+ *  Created on: 09/13/2016
  *      Author: jpsousa@fe.up.pt
  */
 
@@ -11,12 +11,12 @@
 
 #include <stdio.h>
 
-#define F_CPU 16000000UL
+#define F_CPU 16000000UL                    /* CPU Frequency    */
 
-#define BAUD 57600UL                        /* baud rate */
-#define BAUDGEN ((F_CPU / (16 * BAUD)) - 1) /* divider   */
+#define BAUD 57600UL                        /* Baud Rate        */
+#define BAUDGEN ((F_CPU / (16 * BAUD)) - 1) /* Divider          */
 
-int /* usart */ _putchar(char c, FILE *stream);
+int usart_putchar(char c, FILE *stream);
 
 void printf_init(void);
 
