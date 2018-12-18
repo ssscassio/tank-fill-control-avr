@@ -11,9 +11,9 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
-#define MOTOR_DDR DDRD
-#define MOTOR_PORT PORTD
-#define MOTOR PD6
+#define MOTOR_DDR DDRB
+#define MOTOR_PORT PORTB
+#define MOTOR PB0
 
 #define LOWER_LIMIAR_MOTOR 10
 #define HIGHER_LIMIAR_MOTOR 50
