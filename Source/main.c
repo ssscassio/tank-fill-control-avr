@@ -8,24 +8,42 @@
 #include "../Headers/motor.h"
 #include "../Headers/level_sensors.h"
 
+#define FILTER_CYCLE_AMOUNT 15
+#define NULL_PERCENT -100
+
 /* Define Functions*/
 void hardware_init(void);
 
 int main(void)
 {
-  hardware_init(); //Setup IO pins and defaults
+  hardware_init(); // Setup IO pins and defaults
 
-  uint16_t tank_percent, tank_percent_floater, tank_percent_pins, tank_percent_sonar;
+  uint16_t tank_percent_floater, tank_percent_pins, tank_percent_sonar;
+  uint16_t tank_percent_selected, tank_percent_from_previous_cycle = NULL_PERCENT, tank_percent_filtered = NULL_PERCENT;
+  uint8_t filter_count = 0;
 
   while (1)
   {
     tank_percent_floater = get_floater_percent();
-    tank_percent_sonar = get_sonar_percent();
     tank_percent_pins = get_pins_percent();
-    tank_percent = tank_percent_pins;
-    show_displays(99 - tank_percent);
-    buzzer_dispatcher(99 - tank_percent);
-    motor_dispatcher(99 - tank_percent);
+    tank_percent_sonar = get_sonar_percent();
+    tank_percent_selected = tank_percent_sonar; // TODO: Add button to select reader
+
+    /* Filtering percent: Change display only if the percent value stay equals for FILTER_CYCLE_AMOUNT programs cycles */
+    if (tank_percent_from_previous_cycle != tank_percent_selected)
+      filter_count = 0;
+    else
+      filter_count++;
+
+    tank_percent_from_previous_cycle = tank_percent_selected;
+
+    if (tank_percent_filtered == -1 || filter_count > FILTER_CYCLE_AMOUNT)
+      tank_percent_filtered = tank_percent_selected;
+    /* End of filtering */
+
+    show_displays(99 - tank_percent_filtered);
+    buzzer_dispatcher(99 - tank_percent_filtered);
+    motor_dispatcher(99 - tank_percent_filtered);
   }
 }
 

@@ -12,11 +12,13 @@ Recorrendo a uma boia pretende-se monitorizar o nível de um depósito de água 
 
 - [ ] Esquemático (Eagle)
 - [ ] Esquemático (Fritzing)
-- [ ] Adição de sensores de nível (Emergência)
+- [x] Adição de sensores de nível (Emergência)
 - [x] Adição de boia para monitoramento de nível
 - [ ] Adição de interface via porta série
 - [x] Exibir nível em porcentagem via display de 7 seguimentos
 - [x] Exibir nível de água via barra de LEDs
 - [x] Determinar nível por sonar
 - [ ] Botão para regular nível mínimo do deposito
-- [ ] Adição de Buzzer e led de controle de nível
+- [x] Adição de Buzzer e led de controle de nível
+- [x] Filtrar os valores obtidos no sensor para suavizar a visualização
+- [ ] Botão para escolher qual dos sensores será utilizado para o controle
