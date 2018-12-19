@@ -1,7 +1,7 @@
 /*
  * ultrasonic.h
  *
- *  Created on: 11 de dez de 2018
+ *  Created on: 19 de dez de 2018
  *      Author: ssscassio
  */
 
@@ -9,14 +9,13 @@
 #define HEADERS_ULTRASONIC_H_
 
 #include <avr/io.h>
-#include <avr/interrupt.h> /* Interrupt stuff */
 #include <util/delay.h>
 
-#define ULTRASONIC_DDR DDRD
-#define ULTRASONIC_PORT PORTD
-#define ULTRASONIC_TRIGGER PD7
-#define ULTRASONIC_ECHO PD3
-#define ULTRASONIC_PIN PIND
+#define ULTRASONIC_DDR DDRC
+#define ULTRASONIC_PORT PORTC
+#define ULTRASONIC_TRIGGER PC4
+#define ULTRASONIC_ECHO PC5
+#define ULTRASONIC_PIN PINC
 
 void ultrasonic_init(void);
 

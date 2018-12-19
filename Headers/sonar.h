@@ -10,9 +10,9 @@
 
 #include "../Headers/ultrasonic.h"
 
-#define DISTANCE_FACTOR 1 / 58 //TODO : Calcular valor
-#define HIGHER_DISTANCE 100 //TODO : Calcular valor
-#define LOWER_DISTANCE 5 //TODO : Calcular valor
+#define DISTANCE_FACTOR 21.5/712
+#define HIGHER_DISTANCE 712*DISTANCE_FACTOR
+#define LOWER_DISTANCE 404*DISTANCE_FACTOR
 
 void sonar_init(void);
 

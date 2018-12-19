@@ -12,9 +12,9 @@ uint16_t get_floater_percent(void)
 {
   uint16_t adc_floater = adc_read(FLOATER);
   if (adc_floater <= LOWER_LEVEL)
-    return 99;
-  else if (adc_floater >= HIGHER_LEVEL)
     return 0;
+  else if (adc_floater >= HIGHER_LEVEL)
+    return 99;
   else
     return 99 - convert_adc_to_percent(adc_floater);
 }
@@ -26,7 +26,7 @@ void floater_init(void)
 
 uint16_t convert_adc_to_percent(uint16_t adc_value)
 {
-  return 99 - (adc_value - LOWER_LEVEL) * 100 / (HIGHER_LEVEL - LOWER_LEVEL);
+  return (adc_value - LOWER_LEVEL) * (HIGHER_LEVEL - LOWER_LEVEL) / 100 ;
 }
 
 uint16_t get_floater_value(void)
