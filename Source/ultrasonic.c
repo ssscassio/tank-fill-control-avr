@@ -17,11 +17,11 @@ void ultrasonic_init(void)
   ULTRASONIC_DDR &= ~(1 << ULTRASONIC_ECHO);   // Echo set as input
   ULTRASONIC_DDR |= (1 << ULTRASONIC_TRIGGER); // Trigger set as output
 
-  /* Enable INT0 */
-  EIMSK |= (1 << INT0);
+  /* Interrupt request at any edge for INT1 */
+  EICRA |= (1 << ISC10);
 
-  /* Interrupt request at falling edge for INT0 */
-  EICRA |= (1 << ISC00);
+  /* Enable INT0 */
+  EIMSK |= (1 << INT1);
 
   /* Enable global interrupt flag */
   sei();
@@ -38,7 +38,7 @@ int get_ultrassonic_value(void)
   return pulse;
 }
 
-ISR(INT0_vect)
+ISR(INT1_vect)
 {
   if (echoStatus == 1)
   {
