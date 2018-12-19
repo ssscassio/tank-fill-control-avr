@@ -7,9 +7,11 @@
 #include "../Headers/sonar.h"
 #include "../Headers/motor.h"
 #include "../Headers/level_sensors.h"
+#include "../Headers/control_selector.h"
 
 #define FILTER_CYCLE_AMOUNT 15
 #define NULL_PERCENT -100
+#define NUMBER_OF_CONTROLS 4
 
 /* Define Functions*/
 void hardware_init(void);
@@ -27,7 +29,23 @@ int main(void)
     tank_percent_floater = get_floater_percent();
     tank_percent_pins = get_pins_percent();
     tank_percent_sonar = get_sonar_percent();
-    tank_percent_selected = tank_percent_sonar; // TODO: Add button to select reader
+
+    switch (control_selector(NUMBER_OF_CONTROLS))
+    {
+    case 0:
+      tank_percent_selected = tank_percent_floater;
+      break;
+    case 1:
+      tank_percent_selected = tank_percent_pins;
+      break;
+    case 2:
+      tank_percent_selected = tank_percent_sonar;
+      break;
+    case 3:
+    default:
+      tank_percent_selected = (tank_percent_floater + tank_percent_pins + tank_percent_sonar) / 3;
+      break;
+    }
 
     /* Filtering percent: Change display only if the percent value stay equals for FILTER_CYCLE_AMOUNT programs cycles */
     if (tank_percent_from_previous_cycle != tank_percent_selected)
@@ -56,4 +74,5 @@ void hardware_init(void)
   sonar_init();
   motor_init();
   level_sensors_init();
+  control_selector_init();
 }
