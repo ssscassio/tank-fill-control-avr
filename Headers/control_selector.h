@@ -15,7 +15,7 @@
 #define CONTROL_SELECTOR_DDR DDRD
 #define CONTROL_SELECTOR_PORT PORTD
 
-int control_selector(int switch_count);
+uint8_t control_selector(uint8_t switch_count);
 
 void control_selector_init(void);
 

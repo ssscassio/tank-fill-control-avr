@@ -18,7 +18,7 @@ void displays_init(void)
 
 void show_displays(unsigned char percent)
 {
-  leds_bar_output(99 - percent);
+  leds_bar_output(percent);
   CLEAR_ALL_DISPLAYS();
   SHOW_LEDS_BAR();
   _delay_ms(5);

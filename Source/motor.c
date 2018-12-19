@@ -14,7 +14,7 @@ typedef enum
   waiting_state
 } States;
 
-volatile States state = filling_state; // Initial state of state machine
+States state = filling_state; // Initial state of state machine
 
 void filling(uint16_t percent);
 void waiting(uint16_t percent);
@@ -25,7 +25,7 @@ void motor_init()
   MOTOR_DDR |= (1 << MOTOR);
 }
 
-void motor_dispatcher(uint16_t percent)
+void motor_state_machine(uint16_t percent)
 {
   switch (state)
   {

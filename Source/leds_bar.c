@@ -8,8 +8,8 @@
 #include <avr/io.h>
 #include "../Headers/leds_bar.h"
 
-void leds_bar_output(unsigned char emptyPercent)
+void leds_bar_output(unsigned char percent)
 {
-    int leds_count = emptyPercent * 8 / 100;
+    int leds_count = (99 - percent) * 8 / 99;
     shift_register_output(0b11111111 << leds_count);
 }

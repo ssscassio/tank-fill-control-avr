@@ -20,6 +20,6 @@
 
 void motor_init(void);
 
-void motor_dispatcher(uint16_t percent);
+void motor_state_machine(uint16_t percent);
 
 #endif /* HEADERS_MOTOR_H_ */

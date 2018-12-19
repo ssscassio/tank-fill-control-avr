@@ -12,6 +12,6 @@
 
 #include "../Headers/shift_register.h"
 
-void leds_bar_output(unsigned char emptyPercent);
+void leds_bar_output(unsigned char percent);
 
 #endif /* HEADERS_LEDS_BAR_H_ */

@@ -30,7 +30,57 @@ uint16_t get_pins_amount(void)
   return pinsAmount;
 }
 
-uint16_t get_pins_percent(void)
+uint16_t get_pins_percent_based_on_amount(void)
 {
-  return 100 * get_pins_amount() / 4;
+  return (99 * get_pins_amount() / 4);
+}
+
+uint16_t get_pins_percent_based_on_floater(void)
+{
+  switch (get_pins_amount())
+  {
+  case 0:
+    return 0;
+  case 1:
+    return 10;
+  case 2:
+    return 22;
+  case 3:
+    return 60;
+  case 4:
+    return 80;
+  }
+}
+
+uint16_t get_pins_percent_based_on_height(void)
+{
+  switch (get_pins_amount())
+  {
+  case 0:
+    return 0;
+  case 1:
+    return 100 * PINS_HEIGHT_1 / TANK_FILLED_HEIGHT;
+  case 2:
+    return 100 * PINS_HEIGHT_2 / TANK_FILLED_HEIGHT;
+  case 3:
+    return 100 * PINS_HEIGHT_3 / TANK_FILLED_HEIGHT;
+  case 4:
+    return 100 * PINS_HEIGHT_4 / TANK_FILLED_HEIGHT;
+  }
+}
+
+uint16_t get_pins_percent(int mode)
+{
+  /* Select PINS MODE */
+  switch (mode)
+  {
+  case PINS_MODE_AMOUNT:
+    return get_pins_percent_based_on_amount();
+  case PINS_MODE_FLOATER:
+    return get_pins_percent_based_on_floater();
+  case PINS_MODE_HEIGHT:
+    return get_pins_percent_based_on_height();
+  default:
+    return get_pins_percent_based_on_amount();
+  }
 }

@@ -18,14 +18,14 @@
 #define BUZZER PB2
 
 // Define Buzzer Parameters
-#define FULL_THRESHOLD_PERCENT 80
-#define EMPTY_THRESHOLD_PERCENT 20
+#define UPPER_THRESHOLD_PERCENT 80
+#define LOWER_THRESHOLD_PERCENT 25
 
 // Define Buzzer Actions
 #define BuzzerOn() BUZZER_PORT ^= (1 << BUZZER)
 
 // Define Buzzer Function
-void buzzer_dispatcher(unsigned char percent);
+void buzzer_state_machine(uint16_t percent);
 
 void buzzer_init();
 

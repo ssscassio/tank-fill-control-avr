@@ -13,8 +13,8 @@ void buzzer_init()
   BUZZER_DDR |= (1 << BUZZER);
 }
 
-void buzzer_dispatcher(unsigned char percent)
+void buzzer_state_machine(uint16_t percent)
 {
-  if (percent >= FULL_THRESHOLD_PERCENT || percent <= EMPTY_THRESHOLD_PERCENT)
+  if (percent >= UPPER_THRESHOLD_PERCENT || percent <= LOWER_THRESHOLD_PERCENT)
     BuzzerOn();
 }

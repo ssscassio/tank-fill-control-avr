@@ -8,9 +8,9 @@
 #include <avr/io.h>
 #include "../Headers/control_selector.h"
 
-static int button_count = 0;
+volatile static uint8_t button_count = 0;
 
-int control_selector(int switch_count)
+uint8_t control_selector(uint8_t switch_count)
 {
   return button_count % switch_count;
 }
@@ -26,6 +26,8 @@ void control_selector_init(void)
 
   /* Enable INT0 */
   EIMSK |= (1 << INT0);
+
+  sei();
 }
 
 /* Interrupt Service Routine for INT0 */
