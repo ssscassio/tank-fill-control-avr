@@ -1,6 +1,6 @@
 #include <avr/io.h>
 #include <util/delay.h>
-#include "../Headers/serial_printf.h"
+#include "../Headers/uart.h"
 #include "../Headers/displays.h"
 #include "../Headers/floater.h"
 #include "../Headers/buzzer.h"
@@ -8,7 +8,7 @@
 #include "../Headers/level_sensors.h"
 #include "../Headers/control_selector.h"
 
-#define SONAR 1
+// #define SONAR 1
 
 #ifdef SONAR
 #include "../Headers/sonar.h"
@@ -25,12 +25,18 @@
 
 /* Define Functions*/
 void hardware_init(void);
+#ifdef SONAR
+void print_values(uint16_t tank_percent_floater, uint16_t tank_percent_pins, uint16_t tank_percent_sonar, uint16_t control_mode);
+#else
+void print_values(uint16_t tank_percent_floater, uint16_t tank_percent_pins, uint16_t control_mode);
+#endif
 
 int main(void)
 {
   hardware_init(); // Setup IO pins and defaults
 
   uint16_t tank_percent_floater, tank_percent_pins;
+  uint16_t control_mode = 0, last_control_mode = 0;
 #ifdef SONAR
   uint16_t tank_percent_sonar;
 #endif
@@ -44,15 +50,10 @@ int main(void)
     // tank_percent_sonar = get_sonar_percent();
 #endif
 
-    /*User interface*/
-    printf("Floater: %d%%\n", tank_percent_floater);
-    printf("Pins: %d%% \n", tank_percent_pins);
-#ifdef SONAR
-    printf("Ultrasonic: %d%% %d \n", tank_percent_sonar, get_sonar_value());
-#endif
-
     /* Control mode selection */
-    switch (control_selector(NUMBER_OF_CONTROLS))
+    last_control_mode = control_mode;
+    control_mode = control_selector(NUMBER_OF_CONTROLS);
+    switch (control_mode)
     {
     case 0:
       tank_percent_selected = tank_percent_floater;
@@ -82,6 +83,16 @@ int main(void)
     else
       filter_count++;
 
+    /*User interface*/
+    if (tank_percent_filtered != tank_percent_from_previous_cycle || last_control_mode != control_mode)
+    {
+#ifdef SONAR
+      print_values(tank_percent_floater, tank_percent_pins, tank_percent_sonar, control_mode);
+#else
+      print_values(tank_percent_floater, tank_percent_pins, control_mode);
+#endif
+    }
+
     tank_percent_from_previous_cycle = tank_percent_selected;
 
     if (tank_percent_filtered == -1 || filter_count > FILTER_CYCLE_AMOUNT)
@@ -92,6 +103,21 @@ int main(void)
     buzzer_state_machine(tank_percent_filtered);
     motor_state_machine(tank_percent_filtered);
   }
+}
+
+#ifdef SONAR
+void print_values(uint16_t tank_percent_floater, uint16_t tank_percent_pins, uint16_t tank_percent_sonar, uint16_t control_mode)
+#else
+void print_values(uint16_t tank_percent_floater, uint16_t tank_percent_pins, uint16_t control_mode)
+#endif
+{
+  printf("Floater: %d%%\n", tank_percent_floater);
+  printf("Pins: %d%% \n", tank_percent_pins);
+#ifdef SONAR
+  printf("Ultrasonic: %d%% %d \n", tank_percent_sonar, get_sonar_value());
+#endif
+  printf("Control Mode: %d \n", control_mode);
+  printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 }
 
 void hardware_init(void)
