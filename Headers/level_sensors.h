@@ -8,6 +8,8 @@
 #ifndef HEADERS_LEVEL_SENSOR_H_
 #define HEADERS_LEVEL_SENSOR_H_
 
+#include <avr/io.h>
+
 #define LEVEL_SENSOR_DDR DDRD
 #define LEVEL_SENSOR_PORT PORTD
 #define LEVEL_SENSOR_1 PD3
