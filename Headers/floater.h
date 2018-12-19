@@ -12,8 +12,8 @@
 #include "../Headers/adc.h"
 
 #define FLOATER PC3
-#define HIGHER_LEVEL 800 //TODO : Calcular valor
-#define LOWER_LEVEL 200  //TODO : Calcular valor
+#define HIGHER_LEVEL 720
+#define LOWER_LEVEL 0
 
 uint16_t convert_adc_to_percent(uint16_t adc_value);
 
