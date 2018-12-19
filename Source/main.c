@@ -8,9 +8,20 @@
 #include "../Headers/level_sensors.h"
 #include "../Headers/control_selector.h"
 
+#define SONAR 1
+
+#ifdef SONAR
+#include "../Headers/sonar.h"
+#endif
+
 #define FILTER_CYCLE_AMOUNT 15
 #define NULL_PERCENT -100
+
+#ifdef SONAR
+#define NUMBER_OF_CONTROLS 4
+#else
 #define NUMBER_OF_CONTROLS 3
+#endif
 
 /* Define Functions*/
 void hardware_init(void);
@@ -20,15 +31,25 @@ int main(void)
   hardware_init(); // Setup IO pins and defaults
 
   uint16_t tank_percent_floater, tank_percent_pins;
+#ifdef SONAR
+  uint16_t tank_percent_sonar;
+#endif
   uint16_t tank_percent_selected, tank_percent_from_previous_cycle = NULL_PERCENT, tank_percent_filtered = NULL_PERCENT;
   uint8_t filter_count = 0;
   while (1)
   {
     tank_percent_floater = get_floater_percent();
     tank_percent_pins = get_pins_percent(PINS_MODE_AMOUNT);
+#ifdef SONAR
+    // tank_percent_sonar = get_sonar_percent();
+#endif
 
+    /*User interface*/
     printf("Floater: %d%%\n", tank_percent_floater);
     printf("Pins: %d%% \n", tank_percent_pins);
+#ifdef SONAR
+    printf("Ultrasonic: %d%% %d \n", tank_percent_sonar, get_sonar_value());
+#endif
 
     /* Control mode selection */
     switch (control_selector(NUMBER_OF_CONTROLS))
@@ -40,8 +61,17 @@ int main(void)
       tank_percent_selected = tank_percent_pins;
       break;
     case 2:
+#ifdef SONAR
+      tank_percent_selected = tank_percent_sonar;
+      break;
+    case 3:
+#endif
     default:
+#ifdef SONAR
+      tank_percent_selected = (tank_percent_floater + tank_percent_pins + tank_percent_sonar) / 3;
+#else
       tank_percent_selected = (tank_percent_floater + tank_percent_pins) / 2;
+#endif
       break;
     }
     /* End of Control mode selection */
@@ -73,4 +103,7 @@ void hardware_init(void)
   motor_init();
   level_sensors_init();
   control_selector_init();
+#ifdef SONAR
+  sonar_init();
+#endif
 }
