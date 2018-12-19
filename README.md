@@ -21,4 +21,4 @@ Recorrendo a uma boia pretende-se monitorizar o nível de um depósito de água 
 - [ ] Botão para regular nível mínimo do deposito
 - [x] Adição de Buzzer e led de controle de nível
 - [x] Filtrar os valores obtidos no sensor para suavizar a visualização
-- [ ] Botão para escolher qual dos sensores será utilizado para o controle
+- [x] Botão para escolher qual dos sensores será utilizado para o controle
