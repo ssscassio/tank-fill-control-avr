@@ -2,7 +2,7 @@
  * buzzer.h
  *  Dispatcher for the state machine of
  *  the Buzzer and alert situations 
- *  Header file
+ *  Header File
  *  Created on: 12/7/2018
  *      Author: ssscassio
  */
@@ -24,7 +24,7 @@
 // Define Buzzer Actions
 #define BuzzerOn() BUZZER_PORT ^= (1 << BUZZER)
 
-// Define Buzzer Function
+// Declare Buzzer Functions
 void buzzer_state_machine(uint16_t percent);
 
 void buzzer_init();

@@ -12,6 +12,7 @@
 
 #include "../Headers/shift_register.h"
 
+// Declare leds bar Functions
 void leds_bar_output(unsigned char percent);
 
 #endif /* HEADERS_LEDS_BAR_H_ */

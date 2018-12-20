@@ -1,6 +1,7 @@
 /*
  * sonar.h
  *
+ *  Header File
  *  Created on: 11 de dez de 2018
  *      Author: ssscassio
  */
@@ -10,9 +11,9 @@
 
 #include "../Headers/ultrasonic.h"
 
-#define DISTANCE_FACTOR 21.5/712
-#define HIGHER_DISTANCE 712*DISTANCE_FACTOR
-#define LOWER_DISTANCE 404*DISTANCE_FACTOR
+#define DISTANCE_FACTOR 21.5 / 712
+#define HIGHER_DISTANCE 712 * DISTANCE_FACTOR
+#define LOWER_DISTANCE 404 * DISTANCE_FACTOR
 
 void sonar_init(void);
 

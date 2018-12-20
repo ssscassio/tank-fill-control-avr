@@ -1,6 +1,7 @@
 /*
  * ultrasonic_interrupt.h
  *
+ *  Header File
  *  Created on: 11 de dez de 2018
  *      Author: ssscassio
  */
@@ -9,7 +10,7 @@
 #define HEADERS_ULTRASONIC_H_
 
 #include <avr/io.h>
-#include <avr/interrupt.h> /* Interrupt stuff */
+#include <avr/interrupt.h>
 #include <util/delay.h>
 
 #define ULTRASONIC_DDR DDRD

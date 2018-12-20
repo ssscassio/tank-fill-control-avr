@@ -1,6 +1,7 @@
 /*
  * level_sensors.h
  *
+ *  Header file
  *  Created on: 15 de dez de 2018
  *      Author: ssscassio
  */
@@ -30,6 +31,7 @@
 #define PINS_MODE_FLOATER 1
 #define PINS_MODE_HEIGHT 2
 
+// Declare Level sensors Functions
 void level_sensors_init(void);
 
 uint16_t get_pins_amount(void);

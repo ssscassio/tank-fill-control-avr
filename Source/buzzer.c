@@ -8,9 +8,12 @@
 #include <avr/io.h>
 #include "../Headers/buzzer.h"
 
+/*
+ * Initialization of buzzer alarm 
+ */
 void buzzer_init()
 {
-  BUZZER_DDR |= (1 << BUZZER);
+  BUZZER_DDR |= (1 << BUZZER); // Define Buzzer pin as output
 }
 
 void buzzer_state_machine(uint16_t percent)

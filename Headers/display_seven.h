@@ -4,7 +4,7 @@
  *  input to the shift register 
  *  (less significant bit equals a)
  *  (more significant bit equals dot point)
- *  Header file
+ *  Header File
  *  Created on: 11/29/2018
  *      Author: ssscassio
  */
@@ -37,7 +37,7 @@
 #define nine a | b | c | f | g
 #define dot dp
 
-// Define Seven Segments Display Functions
+// Declare Seven Segments Display Functions
 unsigned char convert_number(unsigned char number);
 
 void seven_left(unsigned char number);

@@ -49,6 +49,8 @@ uint16_t get_pins_percent_based_on_floater(void)
     return 60;
   case 4:
     return 80;
+  default:
+    return 0;
   }
 }
 
@@ -66,6 +68,8 @@ uint16_t get_pins_percent_based_on_height(void)
     return 100 * PINS_HEIGHT_3 / TANK_FILLED_HEIGHT;
   case 4:
     return 100 * PINS_HEIGHT_4 / TANK_FILLED_HEIGHT;
+  default:
+    return 0;
   }
 }
 

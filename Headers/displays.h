@@ -3,7 +3,7 @@
  *  Selection between the outputs from the shift register
  *  Show all displays with a frequency that will be not perceive
  *  by human
- *  Header file
+ *  Header File
  *  Created on: 12/6/2018
  *      Author: ssscassio
  */
@@ -28,7 +28,7 @@
 #define SHOW_RIGHT() SHIFT_REGISTER_CONTROL |= (1 << RIGHT_DISPLAY)
 #define SHOW_LEDS_BAR() SHIFT_REGISTER_CONTROL |= (1 << LEDS_BAR_DISPLAY)
 
-// Define Multiplexer Displays Functions
+// Declare Multiplexer Displays Functions
 void displays_init(void);
 
 void show_displays(unsigned char percent);

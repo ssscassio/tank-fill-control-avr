@@ -8,6 +8,9 @@
 #include <avr/io.h>
 #include "../Headers/adc.h"
 
+/*
+ * ADC conversor initialization 
+ */
 void adc_init(void)
 {
   /* AVCC with external capacitor at AREF pin */
@@ -16,6 +19,10 @@ void adc_init(void)
   ADCSRA = (1 << ADEN) | (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
 }
 
+/*
+ * Read Adc value at specified channel
+ * - ch: Channel to be read
+ */
 uint16_t adc_read(uint8_t ch)
 {
   ch &= 0b00000111;            // AND operation with 7 to keep value between 0-7
