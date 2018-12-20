@@ -19,7 +19,7 @@
 
 // Define Buzzer Parameters
 #define UPPER_THRESHOLD_PERCENT 80
-#define LOWER_THRESHOLD_PERCENT 25
+#define LOWER_THRESHOLD_PERCENT 20
 
 // Define Buzzer Actions
 #define BuzzerOn() BUZZER_PORT ^= (1 << BUZZER)

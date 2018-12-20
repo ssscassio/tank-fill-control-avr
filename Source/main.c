@@ -10,7 +10,7 @@
 
 #define FILTER_CYCLE_AMOUNT 15 /* Filter cycles */
 #define NULL_PERCENT -100      /* Percent initial value*/
-
+//#define _DEBUG_ 1
 #define NUMBER_OF_CONTROLS 3
 #define CONTROL_WITH_FLOATER 0
 #define CONTROL_WITH_PINS 1
@@ -24,7 +24,7 @@ int main(void)
 {
   hardware_init(); // Setup IO pins and defaults
 
-  uint16_t tank_percent_floater, tank_percent_pins;
+  uint32_t tank_percent_floater, tank_percent_pins;
   uint16_t control_mode = 0, last_control_mode = 0;
   uint16_t tank_percent_selected, tank_percent_from_previous_cycle = NULL_PERCENT, tank_percent_filtered = NULL_PERCENT;
   uint8_t filter_count = 0;
@@ -34,7 +34,9 @@ int main(void)
     /* Read Sensors*/
     tank_percent_floater = get_floater_percent();
     tank_percent_pins = get_pins_percent(PINS_MODE_AMOUNT);
-
+#ifdef _DEBUG_
+    printf("Floater percent: %d%% Value: %d\n ", tank_percent_floater, get_floater_value());
+#endif
     /* Control mode selection */
     last_control_mode = control_mode;
     control_mode = control_selector(NUMBER_OF_CONTROLS);

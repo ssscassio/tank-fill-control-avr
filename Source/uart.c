@@ -32,11 +32,11 @@ unsigned char uart_getchar(void)
 }
 
 static FILE uart_output = FDEV_SETUP_STREAM(uart_putchar, NULL, _FDEV_SETUP_WRITE);
-static FILE uart_input = FDEV_SETUP_STREAM(NULL, uart_getchar, _FDEV_SETUP_READ);
+//static FILE uart_input = FDEV_SETUP_STREAM(NULL, uart_getchar, _FDEV_SETUP_READ);
 
 void printf_init(void)
 {
   uart_init();
   stdout = &uart_output;
-  stdin = &uart_input;
+//  stdin = &uart_input;
 }
