@@ -16,6 +16,9 @@ void displays_init(void)
   SHIFT_REGISTER_CONTROL = 0x00;
 }
 
+/*
+ * Multiplex between the two seven segments displays and the leds vector 
+ */
 void show_displays(unsigned char percent)
 {
   leds_bar_output(percent);

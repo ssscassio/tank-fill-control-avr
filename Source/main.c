@@ -1,3 +1,12 @@
+/**
+ * Tank Fill Control Project
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
 #include <avr/io.h>
 #include <util/delay.h>
 #include "../Headers/uart.h"
@@ -10,7 +19,7 @@
 
 #define FILTER_CYCLE_AMOUNT 15 /* Filter cycles */
 #define NULL_PERCENT -100      /* Percent initial value*/
-//#define _DEBUG_ 1
+//#define DEBUG 1
 #define NUMBER_OF_CONTROLS 3
 #define CONTROL_WITH_FLOATER 0
 #define CONTROL_WITH_PINS 1
@@ -34,7 +43,7 @@ int main(void)
     /* Read Sensors*/
     tank_percent_floater = get_floater_percent();
     tank_percent_pins = get_pins_percent(PINS_MODE_AMOUNT);
-#ifdef _DEBUG_
+#ifdef DEBUG
     printf("Floater percent: %d%% Value: %d\n ", tank_percent_floater, get_floater_value());
 #endif
     /* Control mode selection */

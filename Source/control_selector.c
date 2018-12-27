@@ -27,6 +27,7 @@ void control_selector_init(void)
   /* Enable INT0 */
   EIMSK |= (1 << INT0);
 
+  /* Enable Interrupts */
   sei();
 }
 
