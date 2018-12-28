@@ -1,11 +1,43 @@
 /**
  * Tank Fill Control Project
  * 
- * 
- * 
- * 
- * 
- * 
+ *    Este projeto visa permitir o controle automático de um tanque de enchimento e disponibilizar
+ * para o usuário formas de visualização das condições do tanque além de ser informar sobre condições
+ * adversas que o tanque pode apresentar.
+ *    Para identificar as condições do tanque são utilizados dois tipos de informação, uma provida da
+ * boia posicionada no topo do tanque e outra provida de quatro sensores de nível posicionados ao longo
+ * da parede do tanque.
+ *    - Para a boia, após o condicionamento do sinal de tensão utilizando um amplificador operacional, um
+ * nível de tensão entre 0 e 5V é lido por uma das portas ADC do microcontrolador o qual é então convertido
+ * para um valor analógico entre 0 e 1023. A este valor são definidos limiares que representam o máximo e o
+ * mínimo de água que pode estar presente no tanque.
+ *    - Para os sensores de nível são utilizadas quatro portas digitais do microcontrolador as quais são
+ * verificadas quantas delas apresentam nível lógico zero. A quantidade de sensores em nível lógico zero
+ * é diretamente proporcional ao nível do tanque e é convertido em uma porcentagem de acordo com um dos 
+ * seguintes: baseado na porcentagem equivalente da boia, baseado na quantidade de pinos ativos, baseado na
+ * altura dos pinos em relação a profundidade total do tanque.
+ *    Um dos pinos, configurado como uma interrupção externa é utilizado para selecionar o modo de controle
+ * do tanque, o modo selecionado definirá qual será a porcentagem do tanque que será utilizada para fazer
+ * o controle e para ser exibido para o usuário. Os modos de operação são: controle com a porcentagem da boia,
+ * controle com a porcentagem dos sensores de nível, controle com a média entre a porcentagem da boia e dos 
+ * sensores de nível.
+ *    Após selecionar uma das porcentagens, é aplicado um filtro no qual este valor de porcentagem deve se 
+ * repetir durante uma quantidade de ciclos de programa definida (neste projeto 15 ciclos) para que o 
+ * seu valor seja considerado válido para ser exibido ou controlar os atuadores do sistema. Esta solução 
+ * serve para suavizar os valores apresentados em medidas de sensores intermédios (flutuante).
+ *    A porcentagem é então multiplexida via software entre o display de sete segmentos das dezenas, o display
+ * de sete segmentos das unidades e o vetor de oito leds. Para fazer isso, é utilizado um Shift Register que
+ * disponibiliza na sua saída o valor correto para cada um dos displays enquanto três pinos de seleção são 
+ * comutados ordenadamente em um intervalo de 5 milisegundos para selecionar qual display apresentará os
+ * valores da saída do Shift Register no momento. (Devido a persistência retiniana do olho humano esses
+ * esse intervalo de 5 milisegundos é suficiente para não se veja os leds piscarem)
+ *    Por fim os atuadores (bomba e alarme) possuem suas máquinas de estado própias que recebem como entrada 
+ * o nível do tanque preenchido (em porcentagem) e, de acordo com os limiares definidos, define o estado de
+ * acionamento dos atuadores.
+ *    - O alarme atua quando o tanque está demasiado cheio ou demasiado vazio, a partir dos limares definidos
+ *    - A bomba começa a encher o tanque quando o nível fica abaixo de um limiar inferior e para quando o nível
+ * ultrapassa um limiar superior
+ *    Author: Cássio Santos
  */
 #include <avr/io.h>
 #include <util/delay.h>
