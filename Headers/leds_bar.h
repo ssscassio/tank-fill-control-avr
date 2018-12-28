@@ -4,7 +4,7 @@
  *  based on the information of the tank's empty percent
  *  Header File
  *  Created on: 11/8/2018
- *      Author: ssscassio
+ *      Author: Cássio Santos
  */
 
 #ifndef HEADERS_LEDS_BAR_H_

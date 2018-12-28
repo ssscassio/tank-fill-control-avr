@@ -2,7 +2,7 @@
  * uart.c
  *
  *  Created on: 22 de nov de 2018
- *      Author: ssscassio
+ *      Author: Cássio Santos
  */
 
 #include <stdio.h>
@@ -38,5 +38,5 @@ void printf_init(void)
 {
   uart_init();
   stdout = &uart_output;
-//  stdin = &uart_input;
+  //  stdin = &uart_input;
 }

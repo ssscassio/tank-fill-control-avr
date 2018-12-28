@@ -2,7 +2,7 @@
  * floater.h
  *
  *  Created on: 12/7/2018
- *      Author: ssscassio
+ *      Author: Cássio Santos
  */
 
 #ifndef HEADERS_FLOATER_H_

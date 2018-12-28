@@ -2,7 +2,7 @@
  * displays.c
  *
  *  Created on: 6 de dez de 2018
- *      Author: ssscassio
+ *      Author: Cássio Santos
  */
 #include <util/delay.h>
 #include "../Headers/displays.h"

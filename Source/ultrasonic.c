@@ -2,7 +2,7 @@
  * ultrasonic.c
  *
  *  Created on: 19 de dez de 2018
- *      Author: ssscassio
+ *      Author: Cássio Santos
  */
 
 #include <avr/io.h>

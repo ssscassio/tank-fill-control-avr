@@ -3,7 +3,7 @@
  *  Initialize ADC conversor and read from a specific channel
  *  Header File
  *  Created on: 12/07/2018
- *      Author: ssscassio
+ *      Author: Cássio Santos
  */
 
 #ifndef HEADERS_ADC_H_

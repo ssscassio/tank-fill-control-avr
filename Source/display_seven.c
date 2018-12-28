@@ -2,7 +2,7 @@
  * display_seven.c
  *
  *  Created on: 29 de nov de 2018
- *      Author: ssscassio
+ *      Author: Cássio Santos
  */
 
 #include <avr/io.h>

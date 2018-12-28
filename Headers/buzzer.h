@@ -4,7 +4,7 @@
  *  the Buzzer and alert situations 
  *  Header File
  *  Created on: 12/7/2018
- *      Author: ssscassio
+ *      Author: Cássio Santos
  */
 
 #ifndef HEADERS_BUZZER_H_

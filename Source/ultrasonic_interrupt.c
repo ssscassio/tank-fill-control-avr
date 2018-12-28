@@ -2,7 +2,7 @@
  * ultrasonic_interrupt.c
  *
  *  Created on: 11 de dez de 2018
- *      Author: ssscassio
+ *      Author: Cássio Santos
  */
 #include <avr/io.h>
 #include <avr/interrupt.h> /* Interrupt stuff */

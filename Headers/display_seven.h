@@ -6,7 +6,7 @@
  *  (more significant bit equals dot point)
  *  Header File
  *  Created on: 11/29/2018
- *      Author: ssscassio
+ *      Author: Cássio Santos
  */
 
 #ifndef HEADERS_DISPLAY_SEVEN_H_

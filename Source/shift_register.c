@@ -2,7 +2,7 @@
  * shift_register.c
  *
  *  Created on: 22 de nov de 2018
- *      Author: ssscassio
+ *      Author: Cássio Santos
  */
 #include <avr/io.h>
 #include "../Headers/shift_register.h"

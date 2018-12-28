@@ -3,7 +3,7 @@
  *
  *  Header File
  *  Created on: 22 de nov de 2018
- *      Author: ssscassio
+ *      Author: Cássio Santos
  */
 
 #ifndef HEADERS_SHIFT_REGISTER_H_

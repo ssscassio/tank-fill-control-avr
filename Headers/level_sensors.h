@@ -3,7 +3,7 @@
  *
  *  Header file
  *  Created on: 15 de dez de 2018
- *      Author: ssscassio
+ *      Author: Cássio Santos
  */
 
 #ifndef HEADERS_LEVEL_SENSOR_H_

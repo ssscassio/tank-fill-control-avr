@@ -5,7 +5,7 @@
  *  by human
  *  Header File
  *  Created on: 12/6/2018
- *      Author: ssscassio
+ *      Author: Cássio Santos
  */
 
 #ifndef HEADERS_DISPLAYS_H_
