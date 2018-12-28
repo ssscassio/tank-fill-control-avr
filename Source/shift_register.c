@@ -11,8 +11,13 @@ void shift_register_init()
 {
   /* Define Shift Register pins as Outputs - remaining pins unconfigured */
   DDRC |= (1 << DS_PIN) | (1 << ST_CP_PIN) | (1 << SH_CP_PIN);
+  /* DS = SER; ST = RCK; SH = SCK */
 }
 
+/**
+ * Provides the byte passed as parameter
+ * to the output of the shift register
+ */
 void shift_register_output(unsigned char byte)
 {
   SH_CP_low();

@@ -14,6 +14,9 @@ void level_sensors_init(void)
   LEVEL_SENSOR_DDR &= ~((1 << LEVEL_SENSOR_1) | (1 << LEVEL_SENSOR_2) | (1 << LEVEL_SENSOR_3) | (1 << LEVEL_SENSOR_4));
 }
 
+/**
+ * Count the amount of pins that are under the water
+ */
 uint16_t get_pins_amount(void)
 {
   uint16_t pinsAmount = 0;

@@ -25,11 +25,11 @@
  * repetir durante uma quantidade de ciclos de programa definida (neste projeto 15 ciclos) para que o 
  * seu valor seja considerado válido para ser exibido ou controlar os atuadores do sistema. Esta solução 
  * serve para suavizar os valores apresentados em medidas de sensores intermédios (flutuante).
- *    A porcentagem é então multiplexida via software entre o display de sete segmentos das dezenas, o display
+ *    A porcentagem é então multiplexada via software entre o display de sete segmentos das dezenas, o display
  * de sete segmentos das unidades e o vetor de oito leds. Para fazer isso, é utilizado um Shift Register que
  * disponibiliza na sua saída o valor correto para cada um dos displays enquanto três pinos de seleção são 
  * comutados ordenadamente em um intervalo de 5 milisegundos para selecionar qual display apresentará os
- * valores da saída do Shift Register no momento. (Devido a persistência retiniana do olho humano esses
+ * valores da saída do Shift Register no momento. (Devido a persistência retiniana do olho humano 
  * esse intervalo de 5 milisegundos é suficiente para não se veja os leds piscarem)
  *    Por fim os atuadores (bomba e alarme) possuem suas máquinas de estado própias que recebem como entrada 
  * o nível do tanque preenchido (em porcentagem) e, de acordo com os limiares definidos, define o estado de
@@ -96,7 +96,8 @@ int main(void)
     }
     /* End of Control mode selection */
 
-    /* Filtering percent: Change display only if the percent value stay equals for FILTER_CYCLE_AMOUNT programs cycles */
+    /* Filtering percent: Change display only if the percent value stay 
+    equals for FILTER_CYCLE_AMOUNT programs cycles */
     if (tank_percent_from_previous_cycle != tank_percent_selected)
       filter_count = 0;
     else

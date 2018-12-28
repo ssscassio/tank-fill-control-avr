@@ -15,6 +15,9 @@ uint8_t control_selector(uint8_t switch_count)
   return button_count % switch_count;
 }
 
+/**
+ * Initialize interrupt at Control selector Pin
+ */
 void control_selector_init(void)
 {
   /* Sensor selector as input with internal pull-up */
