@@ -10,6 +10,7 @@ Recorrendo a uma boia pretende-se monitorizar o nível de um depósito de água 
 
 ### Todo:
 
+- [x] Relatório
 - [x] Esquemático (Eagle)
 - [ ] Esquemático (Fritzing)
 - [x] Adição de sensores de nível (Emergência)
